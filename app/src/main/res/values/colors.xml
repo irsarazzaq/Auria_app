@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="midnight">#0F172A</color>
+    <color name="purple_glow">#7C3AED</color>
+    <color name="cyan_ai">#38BDF8</color>
+    <color name="soft_white">#E5E7EB</color>
+    <color name="auria_bg">#0E1A24</color> <!-- dark bluish -->
+    <color name="white">#FFFFFF</color>
+
 </resources>
