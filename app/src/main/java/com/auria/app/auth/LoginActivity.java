@@ -3,6 +3,7 @@ package com.auria.app.auth;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextInputEditText identifierEt, passwordEt;
     private MaterialButton loginBtn;
+    private TextView createAccountBtn, forgotPassword;
 
     private FirebaseAuth auth;
     private FirebaseFirestore db;
@@ -33,8 +35,20 @@ public class LoginActivity extends AppCompatActivity {
         identifierEt = findViewById(R.id.identifierEt);
         passwordEt = findViewById(R.id.passwordEt);
         loginBtn = findViewById(R.id.loginBtn);
+        createAccountBtn = findViewById(R.id.createAccountBtn);
+        forgotPassword = findViewById(R.id.forgotPassword);
 
         loginBtn.setOnClickListener(v -> loginUser());
+
+        // CREATE ACCOUNT BUTTON FIXED
+        createAccountBtn.setOnClickListener(v -> {
+            // Go to NameActivity (first step of registration)
+            startActivity(new Intent(LoginActivity.this, NameActivity.class));
+        });
+
+        forgotPassword.setOnClickListener(v -> {
+            Toast.makeText(this, "Reset password feature coming soon", Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void loginUser() {

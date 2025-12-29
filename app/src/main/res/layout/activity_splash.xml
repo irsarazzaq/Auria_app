@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/auria_bg">
 
+    <!-- Logo -->
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="140dp"
@@ -17,6 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Text -->
     <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
@@ -24,13 +26,10 @@
         android:text="AI-Enhanced Life Logging"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:letterSpacing="0.15"
+        android:textColor="@color/auria_primary"
         app:layout_constraintTop_toBottomOf="@id/logoImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp"/>
-
+        android:layout_marginTop="24dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

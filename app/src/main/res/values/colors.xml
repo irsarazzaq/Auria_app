@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="midnight">#0F172A</color>
-    <color name="purple_glow">#7C3AED</color>
-    <color name="cyan_ai">#38BDF8</color>
-    <color name="soft_white">#E5E7EB</color>
-    <color name="auria_bg">#0E1A24</color> <!-- dark bluish -->
-    <color name="white">#FFFFFF</color>
-    <color name="auria_accent">#4DA3FF</color>
-    <!-- main background -->
-    <color name="auria_card">#152634</color>
-    <color name="auria_primary">#152634</color>
-    <color name="grey"></color>
-    <!-- dark card -->
-    <color name="auria_input">#1E3446</color>      <!-- input background --><!-- AI purple -->
-    <color name="auria_text">#E6EEF6</color>
-    <color name="auria_hint">#8FA3B8</color>
-    <color name="auria_primary_light">#E6E4FF</color>
+    <!-- DARK THEME COLORS (Tumhara original) -->
+    <color name="purple_glow">#6C63FF</color>      <!-- Auria purple -->
+    <color name="midnight">#0F0F23</color>         <!-- Dark background -->
+    <color name="soft_white">#E8EAED</color>       <!-- Light text/icons -->
 
-    <color name="auria_text_secondary">#636E72</color>
-    <color name="auria_bg_light">#FFFFFF</color>
-    <color name="auria_border">#DDDDDD</color>
+    <!-- AURIA APP COLORS -->
+    <color name="auria_primary">#6C63FF</color>
+    <color name="auria_primary_dark">#554FD8</color>
+    <color name="auria_primary_light">#8B85FF</color>
 
+    <!-- BACKGROUNDS -->
+    <color name="auria_bg">#0F0F23</color>         <!-- Dark blue/black -->
+    <color name="auria_bg_light">#1A1A2E</color>   <!-- Slightly lighter -->
+    <color name="auria_bg_card">#232338</color>    <!-- Card background -->
 
+    <!-- TEXT COLORS -->
+    <color name="auria_text">#E8EAED</color>       <!-- White text -->
+    <color name="auria_text_secondary">#A0A4B8</color> <!-- Gray text -->
+    <color name="auria_text_light">#FFFFFF</color>
 
+    <!-- BORDERS -->
+    <color name="auria_border">#2D2D44</color>
+    <color name="auria_divider">#3A3A50</color>
+
+    <!-- ACCENTS -->
+    <color name="auria_accent">#FF6584</color>     <!-- Pink accent -->
+    <color name="auria_accent_light">#FF8FA3</color>
+
+    <!-- STATUS -->
+    <color name="auria_success">#4CD964</color>
+    <color name="auria_warning">#FFCC00</color>
+    <color name="auria_error">#FF3B30</color>
+
+    <!-- NAVIGATION -->
+    <color name="nav_selected">#6C63FF</color>
+    <color name="nav_unselected">#A0A4B8</color>
 </resources>
