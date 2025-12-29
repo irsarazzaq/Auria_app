@@ -7,5 +7,21 @@
     <color name="soft_white">#E5E7EB</color>
     <color name="auria_bg">#0E1A24</color> <!-- dark bluish -->
     <color name="white">#FFFFFF</color>
+    <color name="auria_accent">#4DA3FF</color>
+    <!-- main background -->
+    <color name="auria_card">#152634</color>
+    <color name="auria_primary">#152634</color>
+    <color name="grey"></color>
+    <!-- dark card -->
+    <color name="auria_input">#1E3446</color>      <!-- input background --><!-- AI purple -->
+    <color name="auria_text">#E6EEF6</color>
+    <color name="auria_hint">#8FA3B8</color>
+    <color name="auria_primary_light">#E6E4FF</color>
+
+    <color name="auria_text_secondary">#636E72</color>
+    <color name="auria_bg_light">#FFFFFF</color>
+    <color name="auria_border">#DDDDDD</color>
+
+
 
 </resources>

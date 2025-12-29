@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Auria">
 
-        <!-- 🔥 SPLASH = LAUNCHER -->
+        <activity android:name=".auth.LoginActivity" />
+        <activity android:name=".auth.VerifyCodeActivity" />
+        <activity android:name=".auth.UsernameActivity" />
+        <activity android:name=".auth.PasswordActivity" />
+        <activity android:name=".auth.EmailActivity" />
+        <activity android:name=".auth.PhoneActivity" />
+        <activity android:name=".auth.GenderActivity" />
+        <activity android:name=".auth.DobActivity" />
+        <activity android:name=".auth.NameActivity" />
+        <activity android:name=".MainActivity" />
+
+        <!-- SPLASH -->
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true">
@@ -22,20 +35,5 @@
             </intent-filter>
         </activity>
 
-        <!-- AUTH SCREENS -->
-        <activity
-            android:name=".auth.LoginActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".auth.RegisterActivity"
-            android:exported="false" />
-
-        <!-- MAIN / HOME -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-
     </application>
-
 </manifest>

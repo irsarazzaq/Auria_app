@@ -8,13 +8,13 @@ import android.os.Looper;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.auria.app.MainActivity;
-import com.auria.app.auth.LoginActivity;
 import com.auria.app.R;
+import com.auria.app.auth.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static final int SPLASH_DELAY = 2500; // 2.5 seconds
+    private static final int SPLASH_DELAY = 2000; // 2 seconds (professional apps keep it short)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +23,17 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
 
-            if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-                // User already logged in
+            FirebaseAuth auth = FirebaseAuth.getInstance();
+
+            if (auth.getCurrentUser() != null) {
+                // ✅ Already logged in
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
             } else {
-                // User not logged in
+                // ✅ Not logged in → Login first
                 startActivity(new Intent(SplashActivity.this, LoginActivity.class));
             }
 
-            finish();
+            finish(); // splash should never come back
 
         }, SPLASH_DELAY);
     }
