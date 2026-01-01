@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/auria_bg"
+    android:padding="16dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="16dp">
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="❮"
+            android:textSize="24sp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:textColor="@color/auria_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="✏️ Edit Post"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/auria_text_primary"
+            android:gravity="center" />
+
+        <!-- Update Button -->
+        <Button
+            android:id="@+id/updateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textColor="@color/auria_primary"
+            android:background="?android:attr/selectableItemBackgroundBorderless" />
+    </LinearLayout>
+
+    <!-- Current Image Preview -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📷 Current Image:"
+        android:textSize="16sp"
+        android:textColor="@color/auria_text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <ImageView
+        android:id="@+id/postImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:background="@color/light_gray"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Change Image Button -->
+    <Button
+        android:id="@+id/changeImageButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔄 Change Image"
+        android:textColor="@color/auria_primary"
+        android:backgroundTint="@color/white"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Caption Edit -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💭 Edit Caption:"
+        android:textSize="16sp"
+        android:textColor="@color/auria_text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/captionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="What's on your mind?"
+        android:textSize="16sp"
+        android:textColor="@color/auria_text_primary"
+        android:background="@drawable/rounded_edittext"
+        android:minHeight="120dp"
+        android:gravity="top"
+        android:padding="12dp" />
+
+    <!-- Info Text -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ℹ️ Note: Changing image will upload a new image"
+        android:textSize="12sp"
+        android:textColor="@color/gray"
+        android:layout_marginTop="16dp"
+        android:gravity="center" />
+
+</LinearLayout>

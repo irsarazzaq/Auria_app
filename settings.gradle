@@ -17,6 +17,12 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS) // Ya PREFER_PROJECT
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }  // ✅ ImagePicker ke liye
+    }
 }
 
 rootProject.name = "Auria"

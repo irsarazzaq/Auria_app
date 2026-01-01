@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <!-- Permissions (Duplicate remove karein) -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Camera Feature (optional) -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -12,28 +18,70 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Auria">
-
-        <activity android:name=".auth.LoginActivity" />
-        <activity android:name=".auth.VerifyCodeActivity" />
-        <activity android:name=".auth.UsernameActivity" />
-        <activity android:name=".auth.PasswordActivity" />
-        <activity android:name=".auth.EmailActivity" />
-        <activity android:name=".auth.PhoneActivity" />
-        <activity android:name=".auth.GenderActivity" />
-        <activity android:name=".auth.DobActivity" />
-        <activity android:name=".auth.NameActivity" />
-        <activity android:name=".MainActivity" />
-
-        <!-- SPLASH -->
+        android:theme="@style/Theme.Auria"
+        tools:targetApi="31">
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".models.User"
+            android:exported="false" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false" /> <!-- Activities -->
+        <activity
+            android:name=".EditPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CommentActivity"
+            android:exported="false" /> <!-- PostsAdapter REMOVED HERE - NOT AN ACTIVITY -->
+        <activity
+            android:name=".AddPostActivity"
+            android:exported="false" />
         <activity
             android:name=".splash.SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Auria">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
+        </activity> <!-- Auth Activities -->
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.VerifyCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.UsernameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.PasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.EmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.PhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.GenderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.DobActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.NameActivity"
+            android:exported="false" /> <!-- Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" /> <!-- Firebase Meta Data -->
+        <meta-data
+            android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+            android:value="ocr" />
     </application>
+
 </manifest>

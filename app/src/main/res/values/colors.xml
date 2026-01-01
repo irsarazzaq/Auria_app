@@ -6,18 +6,16 @@
     <color name="soft_white">#E8EAED</color>       <!-- Light text/icons -->
 
     <!-- AURIA APP COLORS -->
-    <color name="auria_primary">#6C63FF</color>
-    <color name="auria_primary_dark">#554FD8</color>
     <color name="auria_primary_light">#8B85FF</color>
 
     <!-- BACKGROUNDS -->
-    <color name="auria_bg">#0F0F23</color>         <!-- Dark blue/black -->
+             <!-- Dark blue/black -->
     <color name="auria_bg_light">#1A1A2E</color>   <!-- Slightly lighter -->
     <color name="auria_bg_card">#232338</color>    <!-- Card background -->
 
     <!-- TEXT COLORS -->
     <color name="auria_text">#E8EAED</color>       <!-- White text -->
-    <color name="auria_text_secondary">#A0A4B8</color> <!-- Gray text -->
+    <!-- Gray text -->
     <color name="auria_text_light">#FFFFFF</color>
 
     <!-- BORDERS -->
@@ -32,8 +30,28 @@
     <color name="auria_success">#4CD964</color>
     <color name="auria_warning">#FFCC00</color>
     <color name="auria_error">#FF3B30</color>
+        <color name="auria_primary_dark">#3700B3</color>
+        <color name="white">#FFFFFF</color>
+
 
     <!-- NAVIGATION -->
+    <color name="auria_bg">#121212</color>
+    <color name="auria_primary">#BB86FC</color>
+    <color name="auria_text_primary">#FFFFFF</color>
+    <color name="auria_text_secondary">#808080</color>
+    <color name="auria_card_bg">#1E1E1E</color>
     <color name="nav_selected">#6C63FF</color>
     <color name="nav_unselected">#A0A4B8</color>
+
+
+
+    <!-- ADD THESE -->
+
+    <color name="black">#000000</color>
+    <color name="light_gray">#F0F0F0</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="blue">#2196F3</color>
+    <color name="red">#F44336</color>
+    <color name="green">#4CAF50</color>
+
 </resources>

@@ -12,17 +12,30 @@ import com.auria.app.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UsernameActivity extends AppCompatActivity {
 
     private MaterialCardView suggestion1Card, suggestion2Card, suggestion3Card;
     private MaterialButton nextBtn;
     private String selectedUsername = "";
+    private FirebaseAuth auth;
+    private FirebaseFirestore db;
+    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_username);
+
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        currentUser = auth.getCurrentUser();
 
         suggestion1Card = findViewById(R.id.suggestion1Card);
         suggestion2Card = findViewById(R.id.suggestion2Card);
@@ -48,18 +61,14 @@ public class UsernameActivity extends AppCompatActivity {
             highlightCard(suggestion3Card);
         });
 
-        // NEXT BUTTON - DIRECT TO MAIN ACTIVITY
+        // NEXT BUTTON - NOW SAVES TO FIRESTORE
         nextBtn.setOnClickListener(v -> {
             if (selectedUsername.isEmpty()) {
-                // Auto-select first if nothing selected
                 selectedUsername = "user_default";
             }
 
-            // DIRECT NAVIGATION - NO FIREBASE, NO CHECKS
-            Intent intent = new Intent(UsernameActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish();
+            // SAVE USERNAME TO FIRESTORE
+            saveUsernameToFirestore(selectedUsername);
         });
 
         // AUTO-SELECT FIRST OPTION
@@ -71,9 +80,9 @@ public class UsernameActivity extends AppCompatActivity {
         MaterialTextView tv2 = suggestion2Card.findViewById(R.id.suggestionText2);
         MaterialTextView tv3 = suggestion3Card.findViewById(R.id.suggestionText3);
 
-        tv1.setText("user_cool");
-        tv2.setText("auria_fan");
-        tv3.setText("ai_lover");
+        tv1.setText("user_" + (System.currentTimeMillis() % 1000));
+        tv2.setText("auria_" + (System.currentTimeMillis() % 1001));
+        tv3.setText("ai_" + (System.currentTimeMillis() % 1002));
 
         tv1.setVisibility(View.VISIBLE);
         tv2.setVisibility(View.VISIBLE);
@@ -82,21 +91,41 @@ public class UsernameActivity extends AppCompatActivity {
 
     private void highlightCard(MaterialCardView selectedCard) {
         // Reset all cards
-        suggestion1Card.setCardBackgroundColor(getColor(R.color.auria_bg_light));
-        suggestion2Card.setCardBackgroundColor(getColor(R.color.auria_bg_light));
-        suggestion3Card.setCardBackgroundColor(getColor(R.color.auria_bg_light));
+        suggestion1Card.setCardBackgroundColor(getResources().getColor(R.color.auria_bg_light));
+        suggestion2Card.setCardBackgroundColor(getResources().getColor(R.color.auria_bg_light));
+        suggestion3Card.setCardBackgroundColor(getResources().getColor(R.color.auria_bg_light));
 
         // Highlight selected
-        selectedCard.setCardBackgroundColor(getColor(R.color.auria_primary_light));
+        selectedCard.setCardBackgroundColor(getResources().getColor(R.color.auria_primary_light));
     }
-    private void saveUsernameAndNavigate() {
-        // Save to Firestore (if needed later)
-        // db.collection("users").document(uid).set(data)...
 
-        // IMMEDIATE NAVIGATION
-        Intent intent = new Intent(UsernameActivity.this, MainActivity.class);
-        intent.putExtra("username", selectedUsername); // Pass username if needed
-        startActivity(intent);
-        finish();
+    // ✅ NEW: Save username to Firestore
+    private void saveUsernameToFirestore(String username) {
+        if (currentUser == null) {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("username", username);
+        userData.put("email", currentUser.getEmail());
+        userData.put("userId", currentUser.getUid());
+        userData.put("createdAt", System.currentTimeMillis());
+
+        db.collection("users")
+                .document(currentUser.getUid())
+                .set(userData)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(UsernameActivity.this, "Welcome " + username + "!", Toast.LENGTH_SHORT).show();
+
+                    // Navigate to MainActivity
+                    Intent intent = new Intent(UsernameActivity.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(UsernameActivity.this, "Error saving username: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 }
