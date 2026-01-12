@@ -1,7 +1,7 @@
-# Auria - AI Caption & Post App
+# VibeLink - AI Caption & Post App
 
 ## Project Overview
-Auria is an Android application that allows users to generate captions for images using AI, take pictures with the camera, select images from the gallery, and post them with captions to Firebase Firestore. The app displays posts on the home page, including images and generated captions.
+VibeLink is an Android application that allows users to generate captions for images using AI, take pictures with the camera, select images from the gallery, and post them with captions to Firebase Firestore. The app displays posts on the home page, including images and generated captions.
 
 ## Features
 - Generate AI-based captions from selected or captured images.
